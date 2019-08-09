@@ -1,4 +1,4 @@
-package redis;
+package redis.compress;
 
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
@@ -9,10 +9,10 @@ import org.junit.Test;
 /**
  * Created by @author linxin on 2018/9/9.  <br>
  */
-public class CodeTest {
+public class Md5Test {
 
 
-    public static byte[] hexStringToBytes(String hexString) {
+    public  byte[] hexStringToBytes(String hexString) {
         byte[] bytes = new byte[hexString.length() / 2];
         for (int i = 0; i < bytes.length; i++) {
             //16进制字符转换成int->位运算（取int(32位)低8位,即位与运算 &0xFF）->强转成byte
@@ -23,7 +23,7 @@ public class CodeTest {
         return bytes;
     }
 
-    public static boolean isValidMd5Hex(String hex) {
+    public  boolean isValidMd5Hex(String hex) {
         return StringUtils.isNotEmpty(hex) && !hex.toLowerCase().equals("null") && hex.length() == 32;
     }
 

@@ -6,6 +6,17 @@ import redis.clients.jedis.Jedis;
 import java.util.List;
 
 
+/**
+ * 1. lpush,  rpop 进行任务的通知，task里面带了
+ *      task
+ *          todoList
+ *          sendTime.
+ * 2. pop时候，根据sendTime决定是否处理
+ *
+ * 目的： 需要
+ */
+
+
 public class Infrastructure {
 
     public static Jedis getRedis(){
@@ -55,14 +66,5 @@ public class Infrastructure {
     }
 
 
-    /**
-     * 1. lpush,  rpop 进行任务的通知，task里面带了
-     *      task
-     *          todoList
-     *          sendTime.
-     * 2. pop时候，根据sendTime决定是否处理
-     *
-     * 目的： 需要
-     */
 
 }

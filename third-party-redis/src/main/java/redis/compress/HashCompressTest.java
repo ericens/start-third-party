@@ -61,7 +61,10 @@ public class HashCompressTest {
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //使用hash 节省内存测试
+    /**
+     *  使用md5作为key,-1,查看内存占用。
+     *  <key,-1>
+     */
     @Test
     public void keyValueSetTest(){
         jedis.flushAll();
@@ -69,7 +72,7 @@ public class HashCompressTest {
         Pipeline pipeline = jedis.pipelined();
         for(long i=0;i<100*10000;i++){
             String md5Id=DigestUtils.md5Hex("key"+i);
-            pipeline.set(md5Id,"1");
+            pipeline.set(md5Id,md5Id);
             if(i/10000==0){
                 pipeline.syncAndReturnAll();
                 pipeline=jedis.pipelined();
@@ -77,7 +80,7 @@ public class HashCompressTest {
         }
         pipeline.syncAndReturnAll();
         String info=jedis.info("Memory");
-        log.info("md5StrTest info:"+info);
+        log.info("keyValueSetTest info:"+info);
         long end = System.currentTimeMillis();
         log.info("time elapse:" +(end-start));
 
@@ -96,8 +99,13 @@ mem_allocator:libc
          */
     }
 
+    /**
+     * 使用md5的 部分作为key,部分为field,-1,查看内存占用。
+     *      <key，field,-1>
+     * @throws DecoderException
+     */
     @Test
-    public void keyValueMapTest() throws DecoderException {
+    public void HashSetMapTest() throws DecoderException {
         jedis.flushAll();
         long start = System.currentTimeMillis();
         Pipeline pipeline = jedis.pipelined();
@@ -120,7 +128,7 @@ mem_allocator:libc
         }
         pipeline.syncAndReturnAll();
         String info=jedis.info("Memory");
-        log.info("md5ByteTest info:"+info);
+        log.info("HashSetMapTest info:"+info);
         long end = System.currentTimeMillis();
         log.info("time elapse:" +(end-start));
 

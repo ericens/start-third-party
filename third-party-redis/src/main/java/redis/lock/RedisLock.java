@@ -3,6 +3,13 @@ package redis.lock;
 /**
  * Created by @author linxin on 2018/9/26.  <br>
  *     基于redis的分布式锁工具
+ * 主要是：
+ *          Long res = jedis.setnx(key,"11");
+ *       成功
+ *          jedis.expire(key, expire);
+ *       失败
+ *          检查是否有失效，没有也设置。jedis.expire(key, expire);
+ *
  *
  * 由于 这一把锁公用了一个  Jedis实例。
  *    在多线程情况下需要同步。不然出现，
