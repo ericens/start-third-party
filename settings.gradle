@@ -9,6 +9,7 @@
 
 rootProject.name = 'start-third-party'
 
-include 'third-party-redis'
 include 'gradle-guide'
+include 'third-party-redis'
 include 'third-party-mongodb'
+include 'third-party-mysql'
