@@ -17,25 +17,24 @@ repositories {
 }
 
 dependencies {
-    compile 'org.redisson:redisson:1.0.2'
-    compile 'redis.clients:jedis:2.9.0'
     compile 'org.apache.commons:commons-lang3:3.8.1'
     compile 'commons-codec:commons-codec:1.4'
+    compile 'commons-dbutils:commons-dbutils:1.6'
+    compile 'com.alibaba:druid:1.1.16'
+    compile 'mysql:mysql-connector-java:8.0.11'
+
 
     compile 'junit:junit:4.12'
-    compile 'com.google.code.findbugs:jsr305:3.0.1'
-
     compile 'com.alibaba:fastjson:1.2.47'
 
     compile 'ch.qos.logback:logback-core:1.1.2'
     compile 'ch.qos.logback:logback-classic:1.1.2'
-    compile 'org.projectlombok:lombok:1.18.2'
+    compile 'org.slf4j:log4j-over-slf4j:1.7.7'
+
+    compileOnly 'org.projectlombok:lombok:1.16.18'
+    testCompile 'org.projectlombok:lombok:1.16.8'
     annotationProcessor 'org.projectlombok:lombok:1.18.2'
-
-
-    compile 'org.springframework:spring-core:4.1.7.RELEASE'
-    compile 'org.springframework:spring-beans:4.1.7.RELEASE'
-    compile 'org.springframework.data:spring-data-redis:1.6.2.RELEASE'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.2'
 
 
 }

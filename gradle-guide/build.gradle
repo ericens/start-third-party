@@ -21,12 +21,26 @@ repositories {
 }
 
 dependencies {
-    // This dependency is used by the application.
-    implementation 'com.google.guava:guava:27.1-jre'
+    compile 'org.apache.logging.log4j:log4j-api:2.7'
+    compile 'org.apache.logging.log4j:log4j-core:2.7'
+    compile 'org.apache.commons:commons-lang3:3.8.1'
 
-    // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
+    compile 'net.glxn:qrgen:1.4'
+    compile 'com.google.zxing:javase:3.3.0'
+
+    compile 'com.alibaba:fastjson:1.1.41'
+    compile 'ch.qos.logback:logback-core:1.1.2'
+    compile 'ch.qos.logback:logback-classic:1.1.2'
+    compile 'junit:junit:4.12'
+
+    compile 'com.sun.tools.btrace:btrace-agent:1.2'
+    compile 'com.sun.tools.btrace:btrace-boot:1.2'
+
+
+    compile 'org.projectlombok:lombok:1.18.2'
+    annotationProcessor 'org.projectlombok:lombok:1.18.2'
 }
+
 
 application {
     // Define the main class for the application
