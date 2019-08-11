@@ -8,11 +8,17 @@ import net.glxn.qrgen.image.ImageType;
 
 import java.io.*;
 
+/**
+ * 二维码生成
+ * 1. 直接展示字符串
+ * 2. 跳转至指定的 url
+ */
 public class Main {
     public static void main(String[] args) {
         String str="http://www.cnblogs.com/xz-luckydog/p/6402568.html";
         String url="hello world";
         generateRCCode(str,"/Users/ericens/downloads/1.JPG");
+
         generateRCCode(url,"/Users/ericens/downloads/2.JPG");
 
     }
