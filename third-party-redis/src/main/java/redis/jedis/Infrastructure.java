@@ -38,14 +38,13 @@ public class Infrastructure {
     }
 
     @Test
-    public  void Stringtest() {
+    public  void Stringtest() throws InterruptedException {
         //Connecting to Redis server on localhost
-        Jedis jedis = new Jedis("localhost");
-        System.out.println("Connection to server sucessfully");
-        //set the data in redis string
-        jedis.set("tutorial-name", "Redis tutorial");
-        // Get the stored data and print it
-        System.out.println("Stored string in redis:: "+ jedis.get("tutorial-name"));
+        for(int i=0;i<100;i++){
+            Jedis jedis = new Jedis("localhost",33210);
+            System.out.println(i+ " Stored string in redis:: "+ jedis.get("2324"));
+            Thread.sleep(1000);
+        }
     }
 
     @Test
