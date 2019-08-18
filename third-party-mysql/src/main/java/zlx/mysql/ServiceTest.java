@@ -1,3 +1,5 @@
+package zlx.mysql;
+
 import zlx.mysql.ServiceWithTransaction;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +12,7 @@ import java.util.List;
  * Created by ericens on 2017/3/26.
  */
 @Slf4j
-public class ServiceTesT {
+public class ServiceTest {
 
 
     @Test
