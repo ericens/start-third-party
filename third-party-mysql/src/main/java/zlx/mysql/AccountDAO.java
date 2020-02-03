@@ -17,10 +17,18 @@ import java.util.List;
 public class AccountDAO {
     Connection con;
 
-     public AccountDAO(Connection con){
+    public AccountDAO(Connection con){
         this.con=con;
     }
 
+    public void doSql(String sql){
+        QueryRunner queryRunner=new  QueryRunner();
+        try {
+            int insert = queryRunner.update(con, sql,null);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void update_add(Object param[]) throws SQLException {
         try {
